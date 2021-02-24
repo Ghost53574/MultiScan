@@ -19,6 +19,8 @@ class Connect():
             result = sock.connect_ex((self.IP, self.PORT))
             if not result:
                 print("{}:{} open".format(self.IP, self.PORT))
+            sock.close()
+            sock.shutdown()
         return False
 
 def Scan(IP, PORT):
