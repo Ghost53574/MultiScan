@@ -62,10 +62,10 @@ def Ip_Range(networkid):
     return [str(ip) for ip in ipaddress.IPv4Network(networkid)]
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="DaScanner scans hosts for open ports using multi-threading")
-    parser.add_argument('hosts', help='host list, use the format [network]/[subnet], ex. 10.10.0.0/25', type=str)
+    parser = argparse.ArgumentParser(description="MultiScan scans hosts for open ports using multi-threading")
+    parser.add_argument('network', help='network, use the format [network]/[subnet], ex. 10.10.0.0/25 or 192.168.1.15/32', type=str)
     parser.add_argument('-p', '--ports', help='port list, use the format [start port]-[end port], ex. 20-80. Not specifing uses default range', type=str)
-    parser.add_argument('-w', '--workers', help='workers, specifiy max threads allowed to spawn', type=int)
+    parser.add_argument('-w', '--workers', help='workers, specifiy max threads allowed to spawn. Default is 50', type=int)
     arguments = parser.parse_args()
 
     PORT_LIST = None
